@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
+import { getEmail, vacantInput } from './utilities/utilities';
 import Banner from './components/Banner/Banner'
 import Navbar from './components/Navbar/Navbar'
 import Toggle from './components/Toggle/Toggle'
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css'
 import Footer from './components/Footer/Footer';
-import { getEmail, vacantInput } from './utilities/utilities';
 
 function App() {
 
@@ -17,62 +17,65 @@ function App() {
   const handleEmail = (id) => {
     const updatedEmail = getEmail(id);
 
-    if (email) {
-      if (updatedEmail.includes('@')) {
-        setEmail(updatedEmail);
-        localStorage.setItem('userEmail', updatedEmail);
-        vacantInput(id);
-        toast.success(`You subscription email is changed to ${updatedEmail}.`, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+    if (updatedEmail) {
+      if (email) {
+        if (updatedEmail.includes('@')) {
+          setEmail(updatedEmail);
+          localStorage.setItem('userEmail', updatedEmail);
+          vacantInput(id);
+          toast.success(`You subscription email is changed to ${updatedEmail}.`, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          toast.error("Invalid email.", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
       } else {
-        toast.error("Invalid email.", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        if (updatedEmail.includes('@')) {
+          setEmail(updatedEmail);
+          localStorage.setItem('userEmail', updatedEmail);
+          vacantInput(id);
+          toast.success(`Subscription process has completed! You'll get latest news on ${updatedEmail}. Stay tuned!`, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        } else {
+          toast.error("Invalid email.", {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
       }
     } else {
-      if (updatedEmail.includes('@')) {
-        setEmail(updatedEmail);
-        localStorage.setItem('userEmail', updatedEmail);
-        vacantInput(id);
-        toast.success(`Subscription process has completed! You'll get latest news on ${updatedEmail}. Stay tuned!`, {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      } else {
-        toast.error("Invalid email.", {
-          position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      }
+      return;
     }
-
   }
 
   useEffect(() => {
@@ -86,7 +89,8 @@ function App() {
 
   useEffect(() => {
     if (localStorage.getItem('userEmail')) {
-      const getEmail = localStorage.getItem('userEmail')
+      const getEmail = localStorage.getItem('userEmail');
+      setEmail(getEmail);
       toast.info(`Welcome to BPL DREAM 11! Subscription Email: ${getEmail}.`, {
         position: "top-center",
         autoClose: 5000,
