@@ -13,4 +13,4 @@ Welcome to **BPL-DREAM 11**, a React-based fantasy cricket application where use
 2. **Interactive User Notifications**: Using `React-Toastify`, users receive real-time notifications and alerts for key actions like player selection, removal, or insufficient funds.
 3. **Real-Time Coin and Player Count Updates**: Includes a user coin display in the navbar that updates with each player selection, adhering to selection limits and validations.
 
-## Live Link of This Project: https://web-assignment-7.netlify.app/
+## Live Link of This Project: https://web-bpl-dream11.netlify.app/
