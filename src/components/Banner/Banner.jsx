@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Banner = ({handleAddCredit}) => {
     return (
-        <div className="w-full mb-10 sm:mb-14 lg:mb-20">
+        <div className="max-w-[95%] sm:max-w-[90%] lg:max-w-[81.25%] min-[1920px]:max-w-[97.5rem] mx-auto mb-10 sm:mb-14 lg:mb-20">
             <div className="hero bg-black bg-[url('https://i.ibb.co.com/Qk8rn86/bg-shadow.png')] w-full h-[36rem] rounded-3xl">
                 <div className="w-[95%] sm:w-[85%] lg:w-[75%] flex items-center justify-center text-center">
                     <div className="w-full flex flex-col items-center justify-center gap-5 lg:gap-6">

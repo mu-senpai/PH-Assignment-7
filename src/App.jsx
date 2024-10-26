@@ -211,10 +211,8 @@ function App() {
   return (
     <div className='w-full relative'>
       <Navbar balance={balance}></Navbar>
-      <div className='max-w-[95%] sm:max-w-[90%] lg:max-w-[81.25%] min-[1920px]:max-w-[97.5rem] mx-auto'>
-        <Banner handleAddCredit={handleAddCredit}></Banner>
-        <Toggle selectedPlayers={selectedPlayers} handlePurchase={handlePurchase} handleRemove={handleRemove}></Toggle>
-      </div>
+      <Banner handleAddCredit={handleAddCredit}></Banner>
+      <Toggle selectedPlayers={selectedPlayers} handlePurchase={handlePurchase} handleRemove={handleRemove}></Toggle>
       <Footer handleEmail={handleEmail}></Footer>
       <ToastContainer
         position="top-center"
