@@ -19,11 +19,8 @@ function App() {
 
     if (updatedEmail) {
       if (email) {
-        if (updatedEmail.includes('@')) {
-          setEmail(updatedEmail);
-          localStorage.setItem('userEmail', updatedEmail);
-          vacantInput(id);
-          toast.success(`You subscription email is changed to ${updatedEmail}.`, {
+        if (email === updatedEmail) {
+          toast.error("You've already subscribed with this email.", {
             position: "top-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -34,16 +31,32 @@ function App() {
             theme: "light",
           });
         } else {
-          toast.error("Invalid email.", {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
+          if (updatedEmail.includes('@')) {
+            setEmail(updatedEmail);
+            localStorage.setItem('userEmail', updatedEmail);
+            vacantInput(id);
+            toast.success(`You subscription email is changed to ${updatedEmail}.`, {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+          } else {
+            toast.error("Invalid email.", {
+              position: "top-center",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+          }
         }
       } else {
         if (updatedEmail.includes('@')) {
