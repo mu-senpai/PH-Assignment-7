@@ -20,6 +20,7 @@ function App() {
     if (updatedEmail) {
       if (email) {
         if (email === updatedEmail) {
+          vacantInput(id);
           toast.error("You've already subscribed with this email.", {
             position: "top-center",
             autoClose: 5000,
@@ -46,6 +47,7 @@ function App() {
               theme: "light",
             });
           } else {
+            vacantInput(id);
             toast.error("Invalid email.", {
               position: "top-center",
               autoClose: 5000,
@@ -74,6 +76,7 @@ function App() {
             theme: "light",
           });
         } else {
+          vacantInput(id);
           toast.error("Invalid email.", {
             position: "top-center",
             autoClose: 5000,
