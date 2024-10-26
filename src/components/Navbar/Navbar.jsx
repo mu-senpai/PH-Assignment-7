@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 const Navbar = ({balance}) => {
     return (
         <div className="w-full bg-[#FFFFFF]/[0.6] backdrop-blur-lg sticky top-0 z-20">
-            <div className="navbar max-w-[95%] sm:max-w-[90%] lg:max-w-[81.25%] mx-auto pt-3 sm:pt-5 lg:pt-8 pb-1 sm:pb-2 lg:pb-4">
+            <div className="navbar max-w-[95%] sm:max-w-[90%] lg:max-w-[81.25%] min-[1920px]:w-[97.5rem] mx-auto pt-3 sm:pt-5 lg:pt-8 pb-1 sm:pb-2 lg:pb-4">
 
                 <div className="navbar-start w-[20%]">
                     {/* Logo */}
