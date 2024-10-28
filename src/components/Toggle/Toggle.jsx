@@ -61,7 +61,7 @@ const Toggle = ({selectedPlayers, handlePurchase, handleRemove, scrollToComponen
             {/* Available-Selected section */}
             <div className="w-full">
                 {
-                    isActive ? <Available players={players} handlePurchase={handlePurchase}></Available> : <Selected selectedPlayers={selectedPlayers} handleRemove={handleRemove} handleIsActive={handleIsActive}></Selected>
+                    isActive ? <Available players={players} handlePurchase={handlePurchase}></Available> : <Selected selectedPlayers={selectedPlayers} handleRemove={handleRemove} handleIsActive={handleIsActive} scrollToComponent={scrollToComponent}></Selected>
                 }
             </div>
         </div>
