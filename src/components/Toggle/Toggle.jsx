@@ -3,7 +3,7 @@ import Available from "../Available/Available";
 import Selected from "../Selected/Selected";
 import PropTypes from "prop-types";
 
-const Toggle = ({selectedPlayers, handlePurchase, handleRemove}) => {
+const Toggle = ({selectedPlayers, handlePurchase, handleRemove, scrollToComponent}) => {
 
     const [isActive, setIsActive] = useState('available')
 
@@ -47,13 +47,6 @@ const Toggle = ({selectedPlayers, handlePurchase, handleRemove}) => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const scrollToComponent = () => {
-        const element = document.getElementById("targetComponent");
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-    };
-
     return (
         <div className="max-w-[95%] sm:max-w-[90%] lg:max-w-[81.25%] min-[1920px]:max-w-[97.5rem] mx-auto">
             {/* Toggle section */}
@@ -79,6 +72,7 @@ const Toggle = ({selectedPlayers, handlePurchase, handleRemove}) => {
 Toggle.propTypes = {
     handlePurchase: PropTypes.func.isRequired,
     handleRemove: PropTypes.func.isRequired,
+    scrollToComponent: PropTypes.func.isRequired,
     selectedPlayers: PropTypes.array.isRequired,
 }
 

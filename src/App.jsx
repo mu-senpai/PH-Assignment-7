@@ -13,6 +13,15 @@ function App() {
   const [balance, setBalance] = useState(0);
   const [selectedPlayers, setSelectedPlayers] = useState([]);
   const [email, setEmail] = useState('');
+  const [targetComponent, setTargetComponent] = useState('targetComponent');
+
+const scrollToComponent = () => {
+    const element = document.getElementById(targetComponent);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setTargetComponent('targetComponent');
+};
 
   const handleEmail = (id) => {
     const updatedEmail = getEmail(id);
@@ -228,7 +237,8 @@ function App() {
     <div className='w-full relative'>
       <Navbar balance={balance}></Navbar>
       <Banner handleAddCredit={handleAddCredit}></Banner>
-      <Toggle selectedPlayers={selectedPlayers} handlePurchase={handlePurchase} handleRemove={handleRemove}></Toggle>
+      <div id='targetComponent'></div>
+      <Toggle selectedPlayers={selectedPlayers} handlePurchase={handlePurchase} handleRemove={handleRemove} scrollToComponent={scrollToComponent}></Toggle>
       <Footer handleEmail={handleEmail}></Footer>
       <ToastContainer
         position="top-center"
