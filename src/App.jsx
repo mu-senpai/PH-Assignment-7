@@ -1,27 +1,26 @@
 import { useEffect, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
+import { Link, Element, animateScroll as scroll } from 'react-scroll';
 import { getEmail, vacantInput } from './utilities/utilities';
 import Banner from './components/Banner/Banner'
 import Navbar from './components/Navbar/Navbar'
 import Toggle from './components/Toggle/Toggle'
+import Footer from './components/Footer/Footer';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css'
-import Footer from './components/Footer/Footer';
 
 function App() {
 
   const [balance, setBalance] = useState(0);
   const [selectedPlayers, setSelectedPlayers] = useState([]);
   const [email, setEmail] = useState('');
-  const [targetComponent, setTargetComponent] = useState('targetComponent');
 
-const scrollToComponent = () => {
-    const element = document.getElementById(targetComponent);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setTargetComponent('targetComponent');
-};
+  const scrollToComponent = () => {
+    scroll.scrollTo(document.querySelector("section").offsetTop, {
+      duration: 800,
+      smooth: 'easeInOutQuad'
+    });
+  };
 
   const handleEmail = (id) => {
     const updatedEmail = getEmail(id);
@@ -237,7 +236,7 @@ const scrollToComponent = () => {
     <div className='w-full relative'>
       <Navbar balance={balance}></Navbar>
       <Banner handleAddCredit={handleAddCredit}></Banner>
-      <div id='targetComponent'></div>
+      <section></section>
       <Toggle selectedPlayers={selectedPlayers} handlePurchase={handlePurchase} handleRemove={handleRemove} scrollToComponent={scrollToComponent}></Toggle>
       <Footer handleEmail={handleEmail}></Footer>
       <ToastContainer
